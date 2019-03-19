@@ -1,0 +1,39 @@
+<h3>Commands:</h3>
+<div class="commands-inline">
+    <table class="commands-left">
+        {% for command, code in data.commands.items() %}
+            <tr class="{{ loop.cycle('odd', 'even') }}">
+                <td style="width: 100%;">
+                    {{ command }}
+                </td>
+                <td style="width: 50px;">
+                    <a class="copy" id="{{ command }}" name="copy" href="#">
+                        <div id="copy-20px" class="tooltip">
+                            <span class="tooltiptext">Copy</span>
+                        </div>
+                    </a>
+                </td>
+                <div id="div-{{ command }}" class="hidden-command">{{ code.packet }}</div>
+                <td style="width: 20px;">
+                    <a class="delete" href="{{ url_for('deleteCommand', deviceName=name, command=command) }}">
+                        <div id="delete-20px" class="tooltip">
+                            <span class="tooltiptext">Delete</span>
+                        </div>
+                    </a>
+                </td>
+                <td style="width: 20px;">
+                    <a class="send" href="{{ url_for('send', deviceName=name, command=command) }}">
+                        <div id="send-20px" class="tooltip">
+                            <span class="tooltiptext">Send</span>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+            {% if loop.index == (loop.length/2)|round(0,'ceil') %}
+                </table>
+                <table class="commands-right">
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+<div style="clear: both;"></div>

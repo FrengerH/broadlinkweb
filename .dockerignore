@@ -1,0 +1,6 @@
+.git
+.gitignore
+venv
+.vscode
+__pycache__
+broadlinkweb/__pycache__

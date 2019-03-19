@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="page-content">
+    {% for name, data in devices.items() %}
+        <hr>
+
+        {% include "/partials/flash.html" %}
+
+        <div class="device">
+            <div class="device-info">
+                {% include "/partials/device_table.html" %}             
+                {% include "/partials/command_form.html" %}
+            </div>
+            {% if data.commands %}
+            <div class="commands">
+                {% include "/partials/commands.html" %}
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $("div.spanner").removeClass("show");
+            $("div.overlay").removeClass("show");
+            $("input[type='submit']").click(function(){
+                if(document.getElementById("command-input").value.length > 0 && 
+                    document.getElementById("command-input").value.length <= 20 )
+                {
+                    $("div.spanner").addClass("show");
+                    $("div.overlay").addClass("show");
+                }
+            });
+
+            $("a[name=copy]").click(function() {
+                var id = "div-" + $(this).attr('id');
+                copyToClipboardMsg(document.getElementById(id), "msg");
+            });
+        });
+    </script>
+{% endblock %}

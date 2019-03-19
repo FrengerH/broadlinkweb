@@ -1,0 +1,7 @@
+<form id="command" action = "{{ url_for('learn', deviceName=name) }}" method = "POST">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        {{ form.command() }}
+        {{ form.submit() }}
+    </fieldset>
+</form>

@@ -1,0 +1,11 @@
+<h3>Device</h3>
+<table class="device">
+    <tr>
+        <td>{{ name }}</td>
+        <td>
+            <a href="{{ url_for('deleteDevice', deviceName=name) }}">
+                <div class="delete-20px"></div>
+            </a>
+        </td>
+    </tr>
+</table>   

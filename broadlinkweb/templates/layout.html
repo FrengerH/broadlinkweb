@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Broadlink web">
+        <meta name="author" content="FrengerH">
+        <title>Broadlink web</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/general.js') }}"></script>
+    </head>
+
+    <body>
+        <div class="page-header">
+            <div class="title">
+                <h2>Broadlink web</h2>
+                <p class="refresh"><a href="{{ url_for('search') }}">Search new devices</a></p>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="overlay"></div>
+        <div class="spanner">
+            <div class="loader"></div>
+            <p>Please press the button of the command you want to learn.</p>
+        </div>
+
+        {% block script %}
+        {% endblock %}
+
+    </body>
+</html>
