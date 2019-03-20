@@ -17,7 +17,7 @@ Clone or download the repository and execute the folling commands depending on w
 
 Docker:
 ```
-docker run -d -p 8000:8000 -v devices:/src/broadlinkweb/devices/ --name broadlink -it frenger/broadlinkweb
+docker run -d -v devices:/src/broadlinkweb/devices/ --net=host --name broadlink -it frenger/broadlinkweb
 ```
 
 Python:
